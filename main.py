@@ -2,7 +2,7 @@
 
 from turtle import *
 from random import randrange
-from os import system as s
+from time import perf_counter
 
 from _SETTINGS_ import *
 from T_BGM import *
@@ -10,75 +10,60 @@ from T_DrawTracks import *
 from T_AddTurtles import *
 from T_MakeMove import *
 
+# Chọn độ dài
 l = -1
 while (l == -1):
-    l = input('Chọn độ dài đường đua (1=short, 2=medium, 3=long): ')
+    l = input('Choose racetrack length (1=short, 2=medium, 3=long): ')
     l = int(l)
-    if (l-1 < 0) or (l-1 > 2):
-        l = -1
-
-PlayBGM()
+    if (l-1 < 0) or (l-1 > 2): l = -1
 trackLength_Session = trackUnitCount[l-1] * trackUnitLength
+
+# Phát nhạc nền
+PlayBGM()
+
+# Vẽ đường đua
 speed(0.125)
 DrawTracks(trackUnitCount[l-1])
 
+# Tạo rùa và lấy thứ tự chạy
 t = []
 t = AddTurtles(t)
 order = []
 for i in range(turtleCount): order.append(t[i][1])
 
-
-print(order)
-
+# Đưa rùa vào vị trí xuất phát
 for i in range(turtleCount):
-    t[order[i]][0].color(t[order[i]][3])
     t[order[i]][0].up()
     t[order[i]][0].goto(t[order[i]][2])
     t[order[i]][0].down()
-    #s("PAUSE > NUL")
 
+# Hàm kiểm tra tất cả con rùa đã hoàn thành cuộc đua chưa
 def haveWeWon():
     sum = 0;
-    for i in range(turtleCount): sum += t[i][7]
+    for i in range(turtleCount): sum += t[i][9]
     if sum == turtleCount:
         return True
     else:
         return False
 
+# Set timer cùng lúc
+for i in range(turtleCount): t[order[i]][8] = perf_counter()
+
+# Bắt đầu đua
 while haveWeWon() == False:
     for i in range(turtleCount):
         t[order[i]] = MakeMove(t[order[i]], trackLength_Session)
         
+# Debug: hiện trạng thái của rùa sau khi kết thúc cuộc đua
 for i in range(turtleCount): print(t[i])
 
-#winner = 0
-#minMoves = tm[0][3] # lấy đại con đầu tiên làm chuẩn so sánh :v
-#for i in range(turtleCount):
-#    print('#%d: finished after %d moves' % (i, tm[i][3]))
-#    if tm[i][3] < minMoves:
-#        minMoves = tm[i][3]
-#        winner = i
-#print('Turtle #%d has won the game. Yay.' % winner)
+# Tìm rùa chiến thắng
+winner = 0
+minRuntime = t[0][8] # lấy đại con đầu tiên làm chuẩn
+for i in range(turtleCount):
+    if t[i][8] < minRuntime:
+        minRuntime = t[i][8]
+        winner = i
+print('Turtle #%d has won the game.' % winner)
 
-s("PAUSE")
-bye()
-
-#t = []
-#
-#for i in range(turtleCount):
-#    t.append(Turtle())
-#    t[i].up()
-#    t[i].goto(-200,-50*i)
-#    t[i].down()
-#    tm.append([False, t[i].position(), turtleColor_Session.pop(randrange(len(turtleColor_Session))), 0, 0, 0])
-#    t[i].color(tm[i][2])
-#
-#
-#print()
-#for i in range(turtleCount):
-#    print('#%d/states: %s' % (i, str(tm[i])))
-#    print('#%d/distance from origin: %d' % (i, t[i].distance(tm[i][1])))
-#    print()
-#
-#s("PAUSE")
-#bye()
+done()
