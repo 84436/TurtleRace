@@ -31,4 +31,7 @@ turtleBackStopBias = 6 # giá trị trong khoảng 0 - 10
 Set1 = ['chicken', 'horse', 'pig', 'sheep']
 Set2 = ['butterfly', 'grasshopper', 'turtle', 'unicorn', 'fish']
 # turtleShapes = chọn tên set con vật sẽ dùng
-turtleShapes = Set1
+turtleShapes = Set2
+
+# Bảng điểm
+scoreboardPadding = 20
