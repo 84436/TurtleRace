@@ -1,3 +1,5 @@
+# VẼ ĐƯỜNG ĐUA
+
 from turtle import *
 from _SETTINGS_ import initX, initY, trackCount, trackUnitLength, trackWidth, trackDivPadding
 
@@ -19,7 +21,7 @@ def DrawTracks(trackUnitCount_Session):
     for i1 in range(trackUnitCount_Session + 1):
         right(90)
         backward(trackDivPadding)
-        write(i1)
+        write(i1, align='center')
         forward(trackDivPadding)
         mark = position()
         for i2 in range(trackCount):
@@ -34,5 +36,6 @@ def DrawTracks(trackUnitCount_Session):
         forward(trackUnitLength)
 
     # Lui ra khỏi tầm nhìn
-    goto(-2*initX, initY)
+    #goto(-2*initX, initY)
+    hideturtle()
     down()
