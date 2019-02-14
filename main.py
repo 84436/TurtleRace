@@ -9,6 +9,7 @@ from T_BGM import *
 from T_DrawTracks import *
 from T_AddTurtles import *
 from T_MakeMove import *
+from T_Scoreboard import *
 
 # Chọn độ dài
 l = -1
@@ -64,6 +65,16 @@ for i in range(turtleCount):
     if t[i][8] < minRuntime:
         minRuntime = t[i][8]
         winner = i
-print('Turtle #%d has won the game.' % winner)
+print('%s has won the game.' % t[winner][3])
+
+# Vẽ bảng điểm
+for i in range(turtleCount):
+    t[i][0].clear()
+clear()
+for i in range(turtleCount):
+    t[i][0].up()
+    t[i][0].goto(t[i][2])
+    t[i][0].forward(2*trackDivPadding)
+DrawScoreboard(t)
 
 done()
