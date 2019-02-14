@@ -22,7 +22,7 @@ def RankTurtles(t):
 def DrawScoreboard(t):
     rankList = RankTurtles(t)
     columnWidth = 100
-    speed(10)
+    speed(0.25)
     
     up()
     goto(initX - scoreboardPadding, initY + scoreboardPadding)
