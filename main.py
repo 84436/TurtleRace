@@ -39,21 +39,24 @@ for i in range(turtleCount):
     t[order[i]][0].down()
 
 # Hàm kiểm tra tất cả con rùa đã hoàn thành cuộc đua chưa
+# TEST
 def haveWeWon():
     sum = 0;
     for i in range(turtleCount): sum += t[i][9]
-    if sum == turtleCount:
+    if sum == turtleCount*raceCount:
         return True
     else:
         return False
 
 # Set timer cùng lúc
-for i in range(turtleCount): t[order[i]][8] = perf_counter()
+for i in range(turtleCount): 
+    t[order[i]][8] = perf_counter() # timer()
 
 # Bắt đầu đua
 while haveWeWon() == False:
     for i in range(turtleCount):
         t[order[i]] = MakeMove(t[order[i]], trackLength_Session)
+        print(str(t[order[i]]) + ' ' + str(t[order[i]][0].distance(t[order[i]][2])))
         
 # Debug: hiện trạng thái của rùa sau khi kết thúc cuộc đua
 for i in range(turtleCount): print(t[i])
@@ -73,8 +76,7 @@ for i in range(turtleCount):
 clear()
 for i in range(turtleCount):
     t[i][0].up()
-    t[i][0].goto(t[i][2])
-    t[i][0].forward(2*trackDivPadding)
+    t[i][0].goto(t[i][2][0]+2*trackDivPadding, t[i][2][1])
 DrawScoreboard(t)
 
 done()

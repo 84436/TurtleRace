@@ -10,13 +10,16 @@ BGMfile = None
 # và <= số màu có trong turtleColors
 c = 4
 
+# Số lượt đua (VD: 2 = có lượt đi lượt về)
+raceCount = 3
+
 # Đường đua
 initX = -300
 initY = 100
 trackCount = c # số rùa = số đường đua
 trackUnitLength = 20
 trackUnitCount = [10, 20, 30] # 3 mức short, medium, long
-trackWidth = 40
+trackWidth = 60
 trackDivPadding = 10
 
 # Rùa
@@ -30,8 +33,11 @@ turtleBackStopBias = 6 # giá trị trong khoảng 0 - 10
 # Tất cả con vật, bất kể set nào, đều phải được đặt trong ./Resources
 Set1 = ['chicken', 'horse', 'pig', 'sheep']
 Set2 = ['butterfly', 'grasshopper', 'turtle', 'unicorn', 'fish']
+Set3 = []
+Set4 = []
+SetPepe = ['pepe1', 'pepe2', 'pepe3', 'pepe4']
 # turtleShapes = chọn tên set con vật sẽ dùng
-turtleShapes = Set2
+turtleShapes = SetPepe
 
 # Bảng điểm
 scoreboardPadding = 20
