@@ -1,0 +1,3 @@
+butterfly.gif, chicken.gif, fish.gif, grasshopper.gif, horse.gif, pig.gif, sheep.gif, turtle.gif, unicorn.gif:
+"Animals Icons for Metro (Windows 8)" by icons8
+https://icons8.com/icon/pack/animals/metro
