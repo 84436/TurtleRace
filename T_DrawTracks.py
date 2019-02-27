@@ -1,9 +1,9 @@
-# VẼ ĐƯỜNG ĐUA
-
 from turtle import *
 from _SETTINGS_ import initX, initY, trackCount, trackUnitLength, trackWidth, trackDivPadding
 
 def DrawTracks(trackUnitCount_Session):
+
+    # Vẽ vạch ngang
     up()
     goto(initX, initY)
     for i in range(trackCount + 1):
@@ -16,6 +16,7 @@ def DrawTracks(trackUnitCount_Session):
         forward(trackWidth)
         left(90)
     
+    # Vẽ vạch dọc
     up()
     goto(initX, initY)    
     for i1 in range(trackUnitCount_Session + 1):
@@ -34,8 +35,6 @@ def DrawTracks(trackUnitCount_Session):
         left(90)
         up()
         forward(trackUnitLength)
-
+    
     # Lui ra khỏi tầm nhìn
-    #goto(-2*initX, initY)
     hideturtle()
-    down()
