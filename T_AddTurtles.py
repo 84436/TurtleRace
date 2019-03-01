@@ -1,16 +1,16 @@
 from turtle import *
 from random import randrange, sample
-from _SETTINGS_ import initX, initY, trackWidth, turtleCount, turtleColors, turtleShapes
+from _SETTINGS_ import init_X, init_Y, track_Width, turtle_Count, turtle_Colors, turtle_Shapes
 
-def AddTurtles(t):
+def Add_Turtles(t):
     
     # Tạo thứ tự chạy ngẫu nhiên
-    order = sample(range(0, turtleCount), turtleCount)
+    order = sample(range(0, turtle_Count), turtle_Count)
         
-    for i in range(turtleCount):
-        position = (initX, initY - trackWidth*i - trackWidth/2)
-        color = turtleColors.pop(randrange(len(turtleColors)))
-        shape = 'Characters/' + turtleShapes.pop(randrange(len(turtleShapes))) + '.gif'
+    for i in range(turtle_Count):
+        position = (init_X, init_Y - track_Width*i - track_Width/2)
+        color = turtle_Colors.pop(randrange(len(turtle_Colors)))
+        shape = 'Characters/' + turtle_Shapes.pop(randrange(len(turtle_Shapes))) + '.gif'
         
         # Thứ tự:
         # Turtle(), order, position, shape, color, moveCount, backCount, stopCount, runtime, raceCount
@@ -26,8 +26,10 @@ def AddTurtles(t):
         
         # Đưa rùa vào vị trí xuất phát
         t[i][0].showturtle()
+        t[i][0].speed(5) # tăng tốc độ vào đường đua
         t[i][0].goto(0,-200)
         t[i][0].goto(t[i][2])
+        t[i][0].speed(3) # tốc độ mặc định
         t[i][0].down()
         
     return t

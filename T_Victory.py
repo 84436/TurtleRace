@@ -1,8 +1,9 @@
 from turtle import *
+from _SETTINGS_ import rank_Width
 
-def AnimateWinner(t, winner):
+def Animate_Winner(t, winner):
     t[winner][0].speed(1)
     t[winner][0].right(90)
     while True:
-        t[winner][0].forward(20)
-        t[winner][0].backward(20)
+        t[winner][0].forward(rank_Width/8)
+        t[winner][0].backward(rank_Width/8)

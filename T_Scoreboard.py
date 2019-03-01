@@ -1,7 +1,7 @@
 ﻿from turtle import *
-from _SETTINGS_ import turtleCount, rankInitX, rankInitY, rankWidth
+from _SETTINGS_ import turtle_Count, rank_Init_X, rank_Init_Y, rank_Width
 
-def RankTurtles(t):
+def Rank_Turtles(t):
     rank = []
     
     initialList = []
@@ -16,47 +16,47 @@ def RankTurtles(t):
             
     return rank
 
-def DrawScoreboard(t):
+def Draw_Scoreboard(t):
 
     # Lấy ranklist
-    rankList = RankTurtles(t)
+    rankList = Rank_Turtles(t)
     
     # Dọn dẹp và nhấc bút lên
     clear()
-    for i in range(turtleCount):
+    for i in range(turtle_Count):
         t[i][0].clear()
         t[i][0].up()
     
     # Vẽ nền bục
-    goto(rankInitX, rankInitY)
+    goto(rank_Init_X, rank_Init_Y)
     showturtle()
     down()
-    forward(turtleCount * rankWidth)
-    goto(rankInitX, rankInitY)
+    forward(turtle_Count * rank_Width)
+    goto(rank_Init_X, rank_Init_Y)
     left(90)
     
     # Vẽ từng bục
     mark = position()
-    for i in range(turtleCount):
-        forward((turtleCount - rankList[i][0] + 1) * rankWidth/2)
+    for i in range(turtle_Count):
+        forward((turtle_Count - rankList[i][0] + 1) * rank_Width/2)
         right(90)
-        forward(rankWidth)
+        forward(rank_Width)
         right(90)
-        forward((turtleCount - rankList[i][0] + 1) * rankWidth/2)
+        forward((turtle_Count - rankList[i][0] + 1) * rank_Width/2)
         left(180)
     
     # Cho từng con rùa lên bục
-    for i in range(turtleCount):
-        t[i][0].goto(rankInitX + rankWidth/2 + rankWidth*i, rankInitY + (turtleCount - rankList[i][0] + 1)*(rankWidth/2) + rankWidth/4)
+    for i in range(turtle_Count):
+        t[i][0].goto(rank_Init_X + rank_Width/2 + rank_Width*i, rank_Init_Y + (turtle_Count - rankList[i][0] + 1)*(rank_Width/2) + rank_Width/4)
     
     # Ghi thời gian dưới bục
     up()
-    goto(rankInitX, rankInitY)
-    forward(rankWidth/8)
+    goto(rank_Init_X, rank_Init_Y)
+    forward(rank_Width/8)
     right(90)
-    forward(rankWidth/2)
-    for i in range(turtleCount):
-        if (i != 0): forward(rankWidth)
+    forward(rank_Width/2)
+    for i in range(turtle_Count):
+        if (i != 0): forward(rank_Width)
         write(rankList[i][1], align='center', font='Consolas')
         
     # Xong
