@@ -34,10 +34,12 @@ def Make_Move(tx, trackLength_Session, race_Count):
         moveList = ['back', 'stop', 'fwd']
         move = choice(moveList)
         if move == 'back' and tx[5] % 10 >= turtle_Back_Stop_Bias and tx[5] % 10 <= 9 and tx[6] <= 3:
-            tx[0].pencolor(bgcolor())
+            #tx[0].pencolor(bgcolor())
+            tx[0].up()
             tx[0].backward(x)
             tx[6] += 1
-            tx[0].pencolor(tx[4])
+            tx[0].down()
+            #tx[0].pencolor(tx[4])
         
         elif move == 'stop' and tx[5] % 10 >= turtle_Back_Stop_Bias and tx[5] % 10 <= 9 and tx[7] <= 2:
             tx[7] += 1
