@@ -23,6 +23,7 @@ def Draw_Scoreboard(t):
     
     # Dọn dẹp và nhấc bút lên
     clear()
+    up()
     for i in range(turtle_Count):
         t[i][0].clear()
         t[i][0].up()
