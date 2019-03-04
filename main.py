@@ -46,11 +46,13 @@ while (race_Count == 0):
 if (Audio_BGM != None):
     PlaySound('Audio/' + Audio_BGM + '.wav', SND_LOOP | SND_ASYNC)
 
+# Đặt tốc độ vẽ
+speed(0.5)
+
 # Vẽ đường đua
 if (BGP_file != None):
     bgpic('Backgrounds/' + BGP_file + '.gif')
     pencolor('white')
-speed(0.5)
 Draw_Tracks(track_Unit_Count[l-1])
 
 # Tạo rùa và lấy thứ tự chạy
