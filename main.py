@@ -10,37 +10,85 @@ from T_MakeMove import *
 from T_Scoreboard import *
 from T_Victory import *
 
-# Kiểm tra số rùa trong _SETTINGS_
-if turtle_Count <= 0:
-    print('Invalid number of turtles.')
+# Phiên bản
+VERSION_STRING = 'TurtleRace revision 4'
+print(VERSION_STRING)
+
+# tk interface: vẽ menu .-.
+from tkinter import *
+
+# Menu chọn độ dài đường đua > Tạo biến global, đặt giá trị và destroy menu
+def RTL_Menu_Set_Value(window, value):
+    global l
+    l = value
+    window.destroy()
+
+# Menu chọn độ dài đường đua
+def RTL_Menu():
+    root = Tk()
+    root.title(VERSION_STRING)
+    frame = Frame()
+    textString = '-- Choose your racetrack length --'
+    label1 = Label(frame, font='Consolas', height=2, text=textString)
+    # Lambda vì widget Button() không return giá trị tới callback
+    # http://effbot.org/zone/tkinter-callbacks.htm
+    button1 = Button(frame, command=lambda: RTL_Menu_Set_Value(root, 1), text='Short\n(10 steps)', font='Consolas', fg='green', justify=CENTER, height=5, width=15)
+    button2 = Button(frame, command=lambda: RTL_Menu_Set_Value(root, 2), text='Medium\n(20 steps)', font='Consolas', fg='blue', justify=CENTER, height=5, width=15)
+    button3 = Button(frame, command=lambda: RTL_Menu_Set_Value(root, 3), text='Long\n(30 steps)', font='Consolas', fg='red', justify=CENTER, height=5, width=15)
+    label1.pack(side=TOP)
+    button1.pack(side=LEFT)
+    button2.pack(side=LEFT)
+    button3.pack(side=LEFT)
+    frame.pack(padx=10, pady=10)
+    root.mainloop()
+
+# Menu chọn số lượt đua > Tạo biến global, đặt giá trị và destroy menu
+def RC_Menu_Set_Value(window, value):
+    global race_Count
+    race_Count = value
+    window.destroy()
+
+# Menu chọn số lượt đua
+def RC_Menu():
+    root = Tk()
+    root.title(VERSION_STRING)
+    frame = Frame()
+    textString = '-- Choose your race count --'
+    label1 = Label(frame, font='Consolas', height=2, text=textString)
+    # Lambda vì widget Button() không return giá trị tới callback
+    # http://effbot.org/zone/tkinter-callbacks.htm
+    button1 = Button(frame, command=lambda: RC_Menu_Set_Value(root, 1), text='1', font='Consolas', justify=CENTER, height=2, width=5)
+    button2 = Button(frame, command=lambda: RC_Menu_Set_Value(root, 2), text='2', font='Consolas', justify=CENTER, height=2, width=5)
+    button3 = Button(frame, command=lambda: RC_Menu_Set_Value(root, 3), text='3', font='Consolas', justify=CENTER, height=2, width=5)
+    button4 = Button(frame, command=lambda: RC_Menu_Set_Value(root, 4), text='4', font='Consolas', justify=CENTER, height=2, width=5)
+    button5 = Button(frame, command=lambda: RC_Menu_Set_Value(root, 5), text='5', font='Consolas', justify=CENTER, height=2, width=5)
+    button6 = Button(frame, command=lambda: RC_Menu_Set_Value(root, 6), text='6', font='Consolas', justify=CENTER, height=2, width=5)
+    button7 = Button(frame, command=lambda: RC_Menu_Set_Value(root, 7), text='7', font='Consolas', justify=CENTER, height=2, width=5)
+    button8 = Button(frame, command=lambda: RC_Menu_Set_Value(root, 8), text='8', font='Consolas', justify=CENTER, height=2, width=5)
+    label1.pack(side=TOP)
+    button1.pack(side=LEFT)
+    button2.pack(side=LEFT)
+    button3.pack(side=LEFT)
+    button4.pack(side=LEFT)
+    button5.pack(side=LEFT)
+    button6.pack(side=LEFT)
+    button7.pack(side=LEFT)
+    button8.pack(side=LEFT)
+    frame.pack(padx=10, pady=10)
+    root.mainloop()
+
+# Tạo menu
+RTL_Menu()
+RC_Menu()
+
+# Kiểm tra l với race_Count có tồn tại
+try:
+    l
+    race_Count
+except NameError:
     exit()
-
-# Chọn độ dài
-l = 0
-while (l == 0):
-    l = input('Choose racetrack length (1=short, 2=medium, 3=long): ')
-    try:
-        l = int(l)
-        if (l < 1) or (l > 3):
-            print('Invalid choice')
-            l = 0
-    except ValueError:
-        print('Invalid number')
-        l = 0
-trackLength_Session = track_Unit_Count[l-1] * track_Unit_Length
-
-# Số lượt đua
-race_Count = 0
-while (race_Count == 0):
-    race_Count = input('Enter number of races: ')
-    try:
-        race_Count = int(race_Count)
-        if (race_Count <= 0):
-            print('Number out of range')
-            race_Count = 0
-    except ValueError:
-        print('Invalid number')
-        race_Count = 0
+else:
+    trackLength_Session = track_Unit_Count[l-1] * track_Unit_Length
 
 # Phát nhạc nền
 if (Audio_BGM != None):
@@ -48,6 +96,9 @@ if (Audio_BGM != None):
 
 # Đặt tốc độ vẽ
 speed(0.5)
+
+# Đổi tên cửa sổ turtle (canvas)
+title(VERSION_STRING)
 
 # Vẽ đường đua
 if (BGP_file != None):
