@@ -26,7 +26,7 @@ track_Unit_Length = 20
 track_Unit_Count = [10, 20, 30] # 3 mức short, medium, long
 track_Width = 60
 track_Div_Padding = 10
-track_Padding = True
+track_Padding = False
 
 # Hình dạng con rùa
 # Đặt tất cả các file trong thư mục "Characters" và ghi các tên file (bỏ đuôi .gif) vào một set
