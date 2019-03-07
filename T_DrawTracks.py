@@ -47,6 +47,8 @@ def Draw_Tracks(trackUnitCount_Session):
             setheading(0)
             up()
             forward(track_Unit_Length)
+    else:
+        setheading(0)
     
     # Lui ra khỏi tầm nhìn
     hideturtle()
