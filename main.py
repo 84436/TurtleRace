@@ -14,6 +14,10 @@ from T_Victory import *
 VERSION_STRING = 'TurtleRace revision 4'
 print(VERSION_STRING)
 
+# Phát nhạc nền
+if (Audio_BGM != None):
+    PlaySound('Audio/' + Audio_BGM + '.wav', SND_LOOP | SND_ASYNC)
+
 # tk interface: vẽ menu .-.
 from tkinter import *
 
@@ -89,10 +93,6 @@ except NameError:
     exit()
 else:
     trackLength_Session = track_Unit_Count[l-1] * track_Unit_Length
-
-# Phát nhạc nền
-if (Audio_BGM != None):
-    PlaySound('Audio/' + Audio_BGM + '.wav', SND_LOOP | SND_ASYNC)
 
 # Đặt tốc độ vẽ
 speed(0.5)
