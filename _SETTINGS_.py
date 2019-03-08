@@ -3,7 +3,7 @@
 # Nhạc nền
 # Đặt file trong thư mục "Audio" và ghi tên file (bỏ đuôi .gif) trong dấu nháy đơn
 # Đặt None để tắt nhạc
-Audio_BGM = 'ProtectorsOfTheEarth'
+Audio_BGM = 'blackpink'
 Audio_Win = 'win'
 
 # Hình nền
@@ -12,6 +12,7 @@ Audio_Win = 'win'
 ## 800x800
 BGP_file = 'bg2'
 BGP_Win_file = 'bg3'
+YouWin = 'YouWin'
 
 # Rùa
 turtle_Count = 4
@@ -39,5 +40,5 @@ turtle_Shapes = Set4
 
 # Bảng điểm
 rank_Init_X = -200
-rank_Init_Y = -100
+rank_Init_Y = -200
 rank_Width = 100
