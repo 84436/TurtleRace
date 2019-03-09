@@ -103,7 +103,7 @@ title(VERSION_STRING)
 # Vẽ đường đua
 if (BGP_file != None):
     bgpic('Backgrounds/' + BGP_file + '.gif')
-    pencolor('white')
+pencolor(track_Color)
 Draw_Tracks(track_Unit_Count[l-1])
 
 # Tạo rùa và lấy thứ tự chạy
@@ -147,7 +147,7 @@ print('%s has won the game.' % t[winner][3])
 # Vẽ bảng xếp hạng
 if (BGP_Win_file != None):
     bgpic('Backgrounds/' + BGP_Win_file + '.gif')
-    pencolor('white')
+pencolor(rank_Color)
 Draw_Scoreboard(t)
 
 # Chạy hiệu ứng chiến thắng
