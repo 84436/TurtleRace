@@ -6,8 +6,9 @@ def Animate_Winner(t, winner):
     WinImage.hideturtle()
     addshape('Backgrounds/' + YouWin + '.gif')
     WinImage.shape('Backgrounds/' + YouWin + '.gif')
-    WinImage.setheading(90)
     WinImage.up()
+    WinImage.goto(t[winner][0].position())
+    WinImage.setheading(90)
     WinImage.forward(125)
     WinImage.showturtle()
     
