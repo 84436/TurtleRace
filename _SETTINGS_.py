@@ -10,24 +10,25 @@ Audio_Win = 'win'
 # Đặt file trong thư mục "Backgrounds" và ghi tên file (bỏ đuôi .gif) trong dấu nháy đơn
 # Đặt None để bỏ hình nền
 ## 800x800
-BGP_file = 'bg2'
+BGP_file = 'bgcity'
 BGP_Win_file = 'bg3'
 YouWin = 'YouWin'
 
 # Rùa
 turtle_Count = 4
-turtle_Colors = ['red', 'orange', 'green', 'blue', 'violet', 'purple', 'brown', 'black']
-turtle_Move_Length = [10, 15, 20]
+turtle_Colors = ['#f44336', '#e91e63', '#673ab7', '#03a9f4', '#76ff03', '#ffc107', '#607d8b', 'black']
+turtle_Move_Length = [5, 10, 15]
 turtle_Back_Stop_Bias = 6 # giá trị trong khoảng 0 - 10
 
 # Đường đua
 init_X = -300
-init_Y = 150
+init_Y = 100
 track_Unit_Length = 20
 track_Unit_Count = [10, 20, 30] # 3 mức short, medium, long
 track_Width = 60
 track_Div_Padding = 10
 track_Padding = False
+track_Color = 'black'
 
 # Hình dạng con rùa
 # Đặt tất cả các file trong thư mục "Characters" và ghi các tên file (bỏ đuôi .gif) vào một set
@@ -42,3 +43,4 @@ turtle_Shapes = Set4
 rank_Init_X = -200
 rank_Init_Y = -200
 rank_Width = 100
+rank_Color = 'white'
